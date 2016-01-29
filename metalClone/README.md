@@ -14,6 +14,8 @@ Simple plugin to clone DOM element.
 - Specified position cloned element.
 - Clone the element as many as you want.
 - With unique ID(s) auto increment.
+- Clone table rows even column also.
+- Limit the number of cloned element into specified value.
 
 
 
@@ -21,7 +23,7 @@ Simple plugin to clone DOM element.
 
 
 
--	[**V1.0.0**](https://github.com/metallurgical/jquery-metal-clone/archive/v1.0.0.zip "V1.0.0")
+-	[**V1.2.0**](https://github.com/metallurgical/jquery-metal-clone/archive/1.2.0.zip "V1.2.0")
 
 
 
@@ -31,8 +33,8 @@ Simple plugin to clone DOM element.
 
 Installation is so very easy. Download the current stable and see the example in Demo page. Here is the manual step to follow :
 
-1. Put `<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>` inside Head Section(using latest version).
-2. Place `<script src="jquery.metalClone.js"></script>` after jQuery library.
+1. Put `<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>` inside Head Section(**recommended using latest version**).
+2. Place `<script src="jquery.metalClone.min.js"></script>` after jQuery library.
 3. Done!!
 
 # Available Options #
@@ -65,6 +67,33 @@ Configurations available for this plugin :
 6.	**copyValue 	: false** : Deep copy include value or empty. Available option is **true** and **false**.
 7.	**btnRemoveText : 'Remove me'** : Text appeared on remove button.
 8.	**btnCloneText : 'Create New Element'** : Text appeared on clone button.
+9.	**cloneLimit** : **'infinity'** : Accept integer number only. This option limit the number of cloned element. After reach the value provided, user no longer can clone element unless remove cloned element.
+
+
+# Available Function Callback #
+1. **onStart : function( e ) { }**
+
+	OnStart callback triggered at very first plugin Initialization. At here you can setup any behaviours.  Accept one argument `e`, stand for current element to clone.
+
+2. **onClone : function( e, obj ) { }**
+
+	OnClone callback triggered at when clone button was clicked. Accept two arguments `e` and `obj` indicated for current element to clone and object itself respectively. This callback trigger before the cloning element occured. At this time you can check for element that want to clone or anything. At here, the only function can be invoked is `.cancelClone(true or false)`. This function will stop current progress of cloning element if called otherwise not and only available on this callback. `Eg usage: obj.cancelClone( true );`, default is false. 
+
+
+3. **onComplete : function( e, obj, clonedElem ) { }**
+
+	OnComplete callback were triggered when cloning process of element done/complete/finish.
+     - e : element to clone
+     - obj : object itself
+     - clonedElem : cloned element.
+    
+    At here, the only function can be invoked is `.removeCloned(true or false)`. This function will remove cloned element and only available on this callback. `Eg usage: obj.removeCloned( true );`, default is false.
+    When `obj.removeCloned( true )` is called, `onClonedRemoved` callback also triggered.
+
+4. **onClonedRemoved : function( removedElem ) { }**
+
+	onClonedRemoved callback triggered after remove button was clicked AND element is completely removed from page. Accept one parameter `removedElem`, which is the element that are being removed.
+
 
 # Basic Usage #
 
@@ -295,6 +324,82 @@ Configurations available for this plugin :
 		});
 ```
 
+**10.	Example 10 - Clone element with limit element to clone.**
+
+``` html
+		<!-- **HTML** -->
+		<div class="toClone_example10">
+			<input type="text">
+			<select id="m">
+				<option value="">--Please Select</option>
+				<option value="Hello">Hello</option>
+			</select>
+		</div>
+```
+``` javascript
+		//**JS**
+		// This selector applied for element/container that want to clone 
+		$('.toClone_example10').metalClone({
+			cloneLimit : 3
+		});
+```
+
+**11.	Example 11 - Clone element with limit element to clone and number of element to clone[must be noted that, the limit specified must be higher than number of element to clone.**
+
+``` html
+		<!-- **HTML** -->
+		<div class="toClone_example11">
+			<input type="text">
+			<select id="m">
+				<option value="">--Please Select</option>
+				<option value="Hello">Hello</option>
+			</select>
+		</div>
+```
+``` javascript
+		//**JS**
+		// This selector applied for element/container that want to clone 
+		$('.toClone_example11').metalClone({
+			cloneLimit : 3,
+			numberToClone : 2
+		});
+```
+
+**12.	Example 11 - Event work with table rows and column to clone.**
+
+``` html
+		<!-- **HTML** -->
+		<div class="toClone_example12">
+			<table border="1">
+				<tr>
+					<td>No.</td>
+					<td>Name</td>
+					<td>Ic</td>
+					<td>Gender</td>
+				</tr>
+				<tr>
+					<td>a</td>
+					<td>b</td>
+					<td>c</td>
+					<td>d</td>
+				</tr>
+				<tr class="toClone_example12">
+					<td><input type="text" size="5" id="kk"/></td>
+					<td><input type="text" size="5"/></td>
+					<td><input type="text" size="5"/></td>
+					<td><input type="text" size="5"/></td>
+				</tr>
+			</table>
+		</div>
+```
+``` javascript
+		//**JS**
+		// This selector applied for element/container that want to clone 
+		$('.toClone_example12').metalClone({
+			cloneLimit : 3
+		});
+```
+
 # Demo Page #
 -	**[Click ME](https://metallurgical.github.io/metalClone "Jquery Metal Clone")**
 
@@ -302,5 +407,6 @@ Configurations available for this plugin :
 -	Jquery Library either minified or development.
 
 # Support #
--	norlihazmey89@gmail.com
--	If you found a bug or something technical problem, please create an issues.
+
+-	If you found a bug or something technical problem, please open an issues.
+-	IF the example/usage above did't clear enough, leave me some note by sending email at **norlihazmey89@gmail.com**
