@@ -1,711 +1,1825 @@
-<!DOCYTPE HTML>
-	<html>
-		<head>
-			<title>Example 1</title>
-			<link href="codeHighlighter/prism.css" rel="stylesheet">
-			<link href="metalClone.css" rel="stylesheet">
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-			<script src="codeHighlighter/prism.js"></script>
-			<script src="jquery.metalClone.min.js"></script>
-			<style type="text/css">
-				.a{
-					border:1px solid green;
-					height:auto;
-					padding: 5px;
-				}
+<!--
+author: Boostraptheme
+author URL: https://boostraptheme.com
+License: Creative Commons Attribution 4.0 Unported
+License URL: https://creativecommons.org/licenses/by/4.0/
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
-				.dest{
-					float : right;
-					border:1px solid red;
-				}
-				.container{
-				border: 1px solid #A6A6A6;
-				padding : 5px;
-				background: #E1E1E1;
-				margin : 10px;
-			}
-				.container_body{
-					background-color: #fff;
-					padding : 5px;
-					margin:2px;
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-				}
-			</style>
-			<script>
-			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <title>Jquery Metal Clone</title>
 
-			  ga('create', 'UA-72646167-1', 'auto');
-			  ga('send', 'pageview');
+    <!-- Global stylesheets -->
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/devicons/css/devicons.min.css" rel="stylesheet">
+    <link href="css/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="codeHighlighter/prism.css" rel="stylesheet">
+    <link href="node_modules/jquery-metal-clone/metalClone.css" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+    <script src="codeHighlighter/prism.js"></script>
+    <style>
+        pre code{
+            overflow: auto !important;
+            word-wrap: normal !important;
+            white-space: pre !important;
+        }
 
-			</script>
-		</head>
-	<body>
-	<h3>jQuery Clone - Demo</h3>
-	<div class="container">
-			Usage :
-				<ul> 
-					<li>Include Jquery in the head section.
-<pre>
-<code class="language-markup">
-<script type="prism-html-markup">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js">
-</script>
-</code>
-</pre>
-						</li>
-					<li>Include jquery.metalCheckAll plugin after jquery lib.
-<pre>
-<code class="language-markup">
-<script type="prism-html-markup">
-<script src="jquery.metalClone.min.js"></script>
-</script>
-</code>
-</pre>
-					</li>
-					<li> For full documentation, visit <a href="https://github.com/metallurgical/jquery-metal-clone" target="_blank">Github Documentation</a>.</li>
-				</ul>
+        .card {
+            word-wrap: normal !important;
+        }
 
-	</div>
+        .metal-error-limit {
+            color: red;
+            margin-left: 10px;
+        }
+    </style>
+</head>
 
-	<div class="container">
-	<span><strong>Example 1 - Clone element [immediate after last element] without copy the value.</strong></span>
-		<br/>
-		<div class="toClone_example1">
-			<input type="text">
-			<select id="m">
-				<option value="">--Please Select</option>
-				<option value="Hello">Hello</option>
-			</select>
-		</div>
-		<div class="container_body">			
-        	<input type="button" class="btn_example1" value="Create New Copy">
+<body id="page-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-block d-lg-none  mx-0 px-0"><img src="img/logo-white.png" alt="" class="img-fluid"></span>
+        <span class="d-none d-lg-block">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpeg" alt="">
+        </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#introduction">Introduction</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#features">Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#installation">Installation</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#usage">Usage</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#configurations">Configuration</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#license">License</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+    <div class="container-fluid p-0">
+
+    <!--====================================================
+                        INTRODUCTION
+    ======================================================-->
+    <section class="resume-section p-3 p-lg-5 d-flex d-column" id="introduction">
+        <div class="my-auto" >
+            <h1 class="mb-0">JQUERY
+                <span class="text-primary">METAL CLONE</span>
+            </h1>
+            <div class="subheading mb-5">THE COMPLETE API DOCUMENTATION, DEMO AND CONFIGURATIONS</div>
+            <p class="mb-5" style="max-width: 500px;" >Jquery Metal Clone is a jQuery Plugin to Clone HTML DOM element without needed doing it yourself, this plugin will take care of everything. Just seat and drink coffee!</p>
+            <ul class="list-inline list-social-icons mb-0">
+                <!--<li class="list-inline-item">-->
+                    <!--<a href="#">-->
+                        <!--<span class="fa-stack fa-lg">-->
+                        <!--<i class="fa fa-circle fa-stack-2x"></i>-->
+                        <!--<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>-->
+                        <!--</span>-->
+                        <!--<span class="fa-lg">-->
+                            <!--<i class="fab fa-facebook-f fa-2x" data-fa-mask="fas fa-circle fa-2x" data-fa-transform="shrink-8"></i>-->
+                        <!--</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="list-inline-item">-->
+                    <!--<a href="#">-->
+                        <!--<span class="fa-lg">-->
+                            <!--<i class="fab fa-twitter fa-2x" data-fa-mask="fas fa-circle fa-2x" data-fa-transform="shrink-8"></i>-->
+                        <!--</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="list-inline-item">-->
+                    <!--<a href="#">-->
+                        <!--<span class="fa-lg">-->
+                            <!--<i class="fab fa-linkedin fa-2x" data-fa-mask="fas fa-circle fa-2x" data-fa-transform="shrink-8"></i>-->
+                        <!--</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <li class="list-inline-item">
+                    <a href="https://github.com/metallurgical/jquery-metal-clone">
+                        <span class="fa-lg">
+                            <i class="fab fa-github fa-2x" data-fa-mask="fas fa-circle fa-2x" data-fa-transform="shrink-8"></i>
+                        </span>
+                    </a>
+                </li>
+            </ul>
         </div>
-        <div class="container_body">
-<pre>
-<code class="language-markup">
-<script type="prism-html-markup">
-HTML
-<div class="toClone_example1">
-	<input type="text">
-	<select id="m">
-		<option value="">--Please Select</option>
-		<option value="Hello">Hello</option>
-	</select>
-</div>
-<div class="container_body">			
-    <input type="button" class="btn_example1" value="Create New Copy">
-</div>
-</script>
-</code>
-
-<code class="language-javascript">
-jQuery
-$('.toClone_example1').metalClone({
-	btnClone 	: '.btn_example1',
-	copyValue 	: false
-});
-</code>
-</pre>		
-		</div>
-	</div>
+    </section>
 
 
+    <!--====================================================
+                        FEATURES
+    ======================================================-->
+        <section class="resume-section p-3 p-lg-5 " id="features">
+            <div class="row my-auto">
+                <div class="col-12">
+                    <h2 class="  text-center">Features</h2>
+                    <div class="mb-5 heading-border"></div>
+                </div>
+                <div class="resume-item col-md-12 col-sm-12" >
+                    <div class="card p-4 mb-5" style="">
+                        <div class=" resume-content mr-auto">
+                            <h4 class="mb-3"><i class="fa fa-download mr-3 text-info"></i> Available Features</h4>
+                            <p></p>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>Easy to implement together with HTML markup.</li>
+                                <li>Enable placing the cloned element into defined destination.</li>
+                                <li>Specified position cloned element.</li>
+                                <li>Clone the element as many as you want.</li>
+                                <li>With unique ID(s) auto increment.</li>
+                                <li>Clone table rows even column also.</li>
+                                <li>Limit the number of cloned element into specified value.</li>
+                                <li>Available callback on certain action.</li>
+                                <li>* Support for <mark>Font Awesome</mark></li>
+                                <li>Many more...</li>
+                            </ul>
 
+                            * This plugin by default was using <mark>Font Awesome 5</mark> as Icon on both <mark>Remove</mark> and <mark>Create new element</mark> button. To utilize this feature, head over to <a href="https://fontawesome.com/">Font Awesome</a> page and download the fonts(Any options). If you're using Font Awesome 4 in your project, no worries as you still able to use by setting the <mark>fontAwesomeTheme</mark> option into <mark>basic</mark>. If for some reason, you didn't used font awesome at all, then disable font awesome option by setting <mark>enableIcon</mark> into <mark>false</mark>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-	<div class="container">
-	<span><strong>Example 2 - Clone element [immediate after last element] with value copied.</strong></span>
-		<br/>
-		<div class="toClone_example2">
-			<input type="text">
-			<select id="m">
-				<option value="">--Please Select</option>
-				<option value="Hello">Hello</option>
-			</select>
-		</div>
-		<div class="container_body">			
-        	<input type="button" class="btn_example2" value="Create New Copy">
+    <!--====================================================
+                        INSTALLATION
+    ======================================================-->
+    <section class="resume-section p-3 p-lg-5 " id="installation">
+        <div class="row my-auto">
+            <div class="col-12">
+                <h2 class="  text-center">Installation</h2>
+                <div class="mb-5 heading-border"></div>
+            </div>
+            <div class="resume-item col-md-12 col-sm-12" >
+                <div class="card p-4 mb-5" style="">
+                    <div class=" resume-content mr-auto">
+                        <h4 class="mb-3"><i class="fa fa-download mr-3 text-info"></i> HOW TO INSTALL</h4>
+                        <p>Multiples options provided to install this plugin into your projects. Choose any methods that fit your project requirement. </p>
+                    </div>
+                    <div>
+                        <div class="text-primary">NPM</div>
+                        <pre>
+                            <code class="language-bash">
+                                npm install jquery-metal-clone --dev
+                            </code>
+                        </pre>
+                        <br/>
+
+                        <div class="text-primary">Yarn</div>
+                        <pre>
+                            <code class="language-bash">
+                                yarn add jquery-metal-clone
+                            </code>
+                        </pre>
+                        <br/>
+
+                        <div class="text-primary">Bower</div>
+                        <pre>
+                            <code class="language-bash">
+                                bower install jquery-metal-clone --save
+                            </code>
+                        </pre>
+                        <br/>
+
+                        <div class="text-primary">Or manually download</div>
+                        Download the .zip file, extract, copy and paste into your project directory. Reference it after jquery library:
+
+                        <pre>
+                            <code class="language-markup">
+                                &lt;link href="path/to/metalClone.css" rel="stylesheet">
+                                &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js">&lt;/script>
+                                &lt;script src="path/to/jquery.metalClone.min.js">&lt;/script>
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
         </div>
-<div class="container_body">
-<pre>
-<code class="language-markup">
-<script type="prism-html-markup">
-HTML
-<div class="toClone_example2">
-	<input type="text">
-	<select id="m">
-		<option value="">--Please Select</option>
-		<option value="Hello">Hello</option>
-	</select>
-</div>
-<div class="container_body">			
-    <input type="button" class="btn_example2" value="Create New Copy">
-</div>
-</script>
-</code>
-
-<code class="language-javascript">
-jQuery
-$('.toClone_example2').metalClone({
-	btnClone 	: '.btn_example2',
-	copyValue 	: true
-});
-</code>
-</pre>		
-</div>
-	</div>
+    </section>
 
 
 
-
-	<div class="container">
-	<span><strong>Example 3 - Clone element [before first element] without value copied.</strong></span>
-		<br/>
-		<div class="toClone_example3">
-			<input type="text">
-			<select id="m">
-				<option value="">--Please Select</option>
-				<option value="Hello">Hello</option>
-			</select>
-		</div>
-		<div class="container_body">			
-        	<input type="button" class="btn_example3" value="Create New Copy">
+    <!--====================================================
+                        USAGE
+    ======================================================-->
+    <section class="resume-section p-3 p-lg-5" id="usage">
+        <div class="row my-auto">
+            <div class="col-2">
+                <h2 class="  text-center">Usage</h2>
+                <div class="mb-5 heading-border"></div>
+            </div>
         </div>
-<div class="container_body">
-<pre>
-<code class="language-markup">
-<script type="prism-html-markup">
-HTML
-<div class="toClone_example3">
-	<input type="text">
-	<select id="m">
-		<option value="">--Please Select</option>
-		<option value="Hello">Hello</option>
-	</select>
-</div>
-<div class="container_body">			
-    <input type="button" class="btn_example3" value="Create New Copy">
-</div>
-</script>
-</code>
-
-<code class="language-javascript">
-jQuery
-$('.toClone_example3').metalClone({
-	btnClone 	: '.btn_example3',
-	position	: 'before',
-	copyValue 	: false
-});
-</code>
-</pre>		
-</div>
-	</div>
-
-
-
-
-	<div class="container">
-	<span><strong>Example 4 - Clone element [before first element] with value copied.</strong></span>
-		<br/>
-		<div class="toClone_example4">
-			<input type="text">
-			<select id="m">
-				<option value="">--Please Select</option>
-				<option value="Hello">Hello</option>
-			</select>
-		</div>
-		<div class="container_body">			
-        	<input type="button" class="btn_example4" value="Create New Copy">
+        <div class="resume-item col-md-12 col-sm-12 " >
+            <div class="card p-4 mb-5" style="">
+                <div class=" resume-content mr-auto">
+                    <h4 class="mb-3"><i class="fa fa-fighter-jet mr-3 text-info"></i> Quick Use</h4>
+                    <p> Directly initialized <mark>metalClone</mark> plugin straight away into HTML element you want to clone.</p>
+                </div>
+                <div>
+                    <pre>
+                        <code class=“language-js”>
+                        $('.htmlElementYouWantToClone').metalClone();
+                        </code>
+                    </pre>
+                    With above code, it will create automatically for you <mark>Remove</mark> and <mark>Create New Element</mark> buttons.
+                </div>
+            </div>
         </div>
-<div class="container_body">
-<pre>
-<code class="language-markup">
-<script type="prism-html-markup">
-HTML
-<div class="toClone_example4">
-	<input type="text">
-	<select id="m">
-		<option value="">--Please Select</option>
-		<option value="Hello">Hello</option>
-	</select>
-</div>
-<div class="container_body">			
-    <input type="button" class="btn_example4" value="Create New Copy">
-</div>
-</script>
-</code>
-
-<code class="language-javascript">
-jQuery
-$('.toClone_example4').metalClone({
-	btnClone 	: '.btn_example4',
-	position	: 'before',
-	copyValue 	: true
-});
-</code>
-</pre>		
-</div>
-	</div>
-
-
-
-
-	<div class="container">
-	<span><strong>Example 5 - Clone element [immediate after last element] with specified the number of element to copy.</strong></span>
-		<br/>
-		<div class="toClone_example5">
-			<input type="text">
-			<select id="m">
-				<option value="">--Please Select</option>
-				<option value="Hello">Hello</option>
-			</select>
-		</div>
-		<div class="container_body">			
-        	<input type="button" class="btn_example5" value="Create New Copy">
+        <div class="row my-auto">
+        <div class="col-4">
+            <h2 class="  text-center">Advance Usage</h2>
+            <div class="mb-5 heading-border"></div>
         </div>
+    </div>
+        <div class="resume-item col-md-12 col-sm-12 " >
 
-<div class="container_body">
-<pre>
-<code class="language-markup">
-<script type="prism-html-markup">
-HTML
-<div class="toClone_example5">
-	<input type="text">
-	<select id="m">
-		<option value="">--Please Select</option>
-		<option value="Hello">Hello</option>
-	</select>
-</div>
-<div class="container_body">			
-    <input type="button" class="btn_example5" value="Create New Copy">
-</div>
-</script>
-</code>
+            <!-- Example 1 -->
+            <div class="card p-4 mb-5" style="">
+                <div class=" resume-content mr-auto">
+                    <h4 class="mb-3"><i class="fa fa-fighter-jet mr-3 text-info"></i> Example 1</h4>
+                    <p> Clone element <mark>immediately after last element</mark> without copy the value and define custom button to copy existing element. </p>
+                </div>
+                <div>
+                    <h3>HTML</h3>
+                    <pre>
+                        <code class="language-markup">
+                            <script type="prism-html-markup">
+                                <form>
+                                    <div class="form-row toClone_example1">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputFirstName">First Name</label>
+                                            <input type="text" class="form-control" placeholder="First Name" value="Norlihazmey" />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputLastName">Last Name</label>
+                                            <input type="text" class="form-control" placeholder="Last Name" value="Ghazali" />
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn_example1 btn btn-primary">Create New Copy</button>
+                                </form>
+                            </script>
+                        </code>
+                    </pre>
+                    <h3>Javascript</h3>
+                    <pre>
+                        <code class="language-javascript">
+                            $('.toClone_example1').metalClone({
+                                btnClone 	: '.btn_example1',
+                                copyValue 	: false
+                            });
+                        </code>
+                    </pre>
+                    <h3>Output</h3>
+                    <div>
+                        <form>
+                            <div class="form-row toClone_example1">
+                                <div class="form-group col-md-6">
+                                    <label for="inputFirstName">First Name</label>
+                                    <input type="text" class="form-control" placeholder="First Name" value="Norlihazmey" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputLastName">Last Name</label>
+                                    <input type="text" class="form-control" placeholder="Last Name" value="Ghazali" />
+                                </div>
+                            </div>
+                            <button type="button" class="btn_example1 btn btn-primary">Create New Copy</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- End Example 1 -->
 
-<code class="language-javascript">
-jQuery
-$('.toClone_example5').metalClone({
-	btnClone 		: '.btn_example5',
-	position		: 'after',
-	numberToClone 	: 5
-});
-</code>
-</pre>		
-</div>
-	</div>
+            <!-- Example 2 -->
+            <div class="card p-4 mb-5" style="">
+                <div class=" resume-content mr-auto">
+                    <h4 class="mb-3"><i class="fa fa-fighter-jet mr-3 text-info"></i> Example 2</h4>
+                    <p> Clone element <mark>immediately after last element</mark> with value copied and disable animation(only when create and remove element, scrollTop not affected). </p>
+                </div>
+                <div>
+                    <h3>HTML</h3>
+                    <pre>
+                        <code class="language-markup">
+                            <script type="prism-html-markup">
+                                <form>
+                                    <div class="form-row toClone_example2">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputFirstName">First Name</label>
+                                            <input type="text" class="form-control" placeholder="First Name" value="Norlihazmey" />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputLastName">Last Name</label>
+                                            <input type="text" class="form-control" placeholder="Last Name" value="Ghazali" />
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn_example2 btn btn-primary">Create New Copy</button>
+                                </form>
+                            </script>
+                        </code>
+                    </pre>
+                    <h3>Javascript</h3>
+                    <pre>
+                        <code class="language-javascript">
+                            $('.toClone_example2').metalClone({
+                                btnClone 	: '.btn_example2',
+                                copyValue 	: true,
+                                enableAnimation: false
+                            });
+                        </code>
+                    </pre>
+                    <h3>Output</h3>
+                    <div>
+                        <form>
+                            <div class="form-row toClone_example2">
+                                <div class="form-group col-md-6">
+                                    <label for="inputFirstName">First Name</label>
+                                    <input type="text" class="form-control" placeholder="First Name" value="Norlihazmey" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputLastName">Last Name</label>
+                                    <input type="text" class="form-control" placeholder="Last Name" value="Ghazali" />
+                                </div>
+                            </div>
+                            <button type="button" class="btn_example2 btn btn-primary">Create New Copy</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- End Example 2 -->
 
+            <!-- Example 3 -->
+            <div class="card p-4 mb-5" style="">
+                <div class=" resume-content mr-auto">
+                    <h4 class="mb-3"><i class="fa fa-fighter-jet mr-3 text-info"></i> Example 3</h4>
+                    <p> Clone element <mark>[before first element]</mark> with Bootstrap class attached on remove button. </p>
+                </div>
+                <div>
+                    <h3>HTML</h3>
+                    <pre>
+                        <code class="language-markup">
+                            <script type="prism-html-markup">
+                                <form>
+                                    <div class="form-row toClone_example3">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputFirstName">First Name</label>
+                                            <input type="text" class="form-control" placeholder="First Name">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputLastName">Last Name</label>
+                                            <input type="text" class="form-control" placeholder="Last Name">
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn_example3 btn btn-primary">Create New Copy</button>
+                                </form>
+                            </script>
+                        </code>
+                    </pre>
+                    <h3>Javascript</h3>
+                    <pre>
+                        <code class="language-javascript">
+                            $('.toClone_example3').metalClone({
+                                btnClone 	: '.btn_example3',
+                                position	: 'before',
+                                btnRemoveClass: 'btn btn-danger btn-sm'
+                            });
+                        </code>
+                    </pre>
+                    <h3>Output</h3>
+                    <div>
+                        <form>
+                            <div class="form-row toClone_example3">
+                                <div class="form-group col-md-6">
+                                    <label for="inputFirstName">First Name</label>
+                                    <input type="text" class="form-control" placeholder="First Name">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputLastName">Last Name</label>
+                                    <input type="text" class="form-control" placeholder="Last Name">
+                                </div>
+                            </div>
+                            <button type="button" class="btn_example3 btn btn-primary">Create New Copy</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- End Example 3 -->
 
+            <!-- Example 4 -->
+            <div class="card p-4 mb-5" style="">
+                <div class=" resume-content mr-auto">
+                    <h4 class="mb-3"><i class="fa fa-fighter-jet mr-3 text-info"></i> Example 4</h4>
+                    <p> Clone element <mark>[immediate after last element]</mark> with specified the number of element to clone/copy and disable confirm message.</p>
+                </div>
+                <div>
+                    <h3>HTML</h3>
+                    <pre>
+                        <code class="language-markup">
+                            <script type="prism-html-markup">
+                                <form>
+                                    <div class="form-row toClone_example4">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputFirstName">First Name</label>
+                                            <input type="text" class="form-control" placeholder="First Name">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputLastName">Last Name</label>
+                                            <input type="text" class="form-control" placeholder="Last Name">
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn_example4 btn btn-primary">Create New Copy</button>
+                                </form>
+                            </script>
+                        </code>
+                    </pre>
+                    <h3>Javascript</h3>
+                    <pre>
+                        <code class="language-javascript">
+                            $('.toClone_example4').metalClone({
+                                btnClone 	: '.btn_example4',
+                                numberToClone: 3,
+                                enableConfirmMessage: false
+                            });
+                        </code>
+                    </pre>
+                    <h3>Output</h3>
+                    <div>
+                        <form>
+                            <div class="form-row toClone_example4">
+                                <div class="form-group col-md-6">
+                                    <label for="inputFirstName">First Name</label>
+                                    <input type="text" class="form-control" placeholder="First Name">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputLastName">Last Name</label>
+                                    <input type="text" class="form-control" placeholder="Last Name">
+                                </div>
+                            </div>
+                            <button type="button" class="btn_example4 btn btn-primary">Create New Copy</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- End Example 4 -->
 
-	<div class="container">
-	<span><strong>Example 6 - Clone element [immediate after last element] with specified the number of element to copy and the destination to place the newly cloned element.</strong></span>
-		<br/>
-		<div class="toClone_example6">
-			<input type="text">
-			<select id="m">
-				<option value="">--Please Select</option>
-				<option value="Hello">Hello</option>
-			</select>
-		</div>
-		<div class="container_body">			
-        	<input type="button" class="btn_example6" value="Create New Copy">
+            <!-- Example 5 -->
+            <div class="card p-4 mb-5" style="">
+                <div class=" resume-content mr-auto">
+                    <h4 class="mb-3"><i class="fa fa-fighter-jet mr-3 text-info"></i> Example 5</h4>
+                    <p> Clone element immediately after last element with <mark>[destination to place the newly cloned element and custom remove message]</mark>.</p>
+                </div>
+                <div>
+                    <h3>HTML</h3>
+                    <pre>
+                        <code class="language-markup">
+                            <script type="prism-html-markup">
+                                <form>
+                                    <div class="form-row toClone_example5">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputFirstName">First Name</label>
+                                            <input type="text" class="form-control" placeholder="First Name">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputLastName">Last Name</label>
+                                            <input type="text" class="form-control" placeholder="Last Name">
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn_example5 btn btn-primary">Create New Copy</button>
+                                </form>
+                            </script>
+                        </code>
+                    </pre>
+                    <h3>Javascript</h3>
+                    <pre>
+                        <code class="language-javascript">
+                            $('.toClone_example5').metalClone({
+                                btnClone 	: '.btn_example5',
+                                confirmMessageText: 'This is the custom message. Are you sure to remove this element?',
+                                destination: '#toClone_example5_output',
+                            });
+                        </code>
+                    </pre>
+                    <h3>Output</h3>
+                    <div>
+                        <form>
+                            <div class="form-row toClone_example5">
+                                <div class="form-group col-md-6">
+                                    <label for="inputFirstName">First Name</label>
+                                    <input type="text" class="form-control" placeholder="First Name">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputLastName">Last Name</label>
+                                    <input type="text" class="form-control" placeholder="Last Name">
+                                </div>
+                            </div>
+                            <button type="button" class="btn_example5 btn btn-primary">Create New Copy</button>
+                        </form>
+                    </div>
+                    <br/>
+                    <h3>Destination</h3>
+                    <div id="toClone_example5_output">
+                        New element will placed inside here
+                    </div>
+                </div>
+            </div>
+            <!-- End Example 5 -->
+
+            <!-- Example 6 -->
+            <div class="card p-4 mb-5" style="">
+                <div class=" resume-content mr-auto">
+                    <h4 class="mb-3"><i class="fa fa-fighter-jet mr-3 text-info"></i> Example 6</h4>
+                    <p> Clone element immediately after last element with <mark>[unique ID(s)]</mark>.</p>
+                </div>
+                <div>
+                    <h3>HTML</h3>
+                    <pre>
+                        <code class="language-markup">
+                            <script type="prism-html-markup">
+                                <form>
+                                    <div class="form-row toClone_example6">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputFirstName">First Name</label>
+                                            <input type="text" class="form-control" placeholder="First Name" id="firstname">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputLastName">Last Name</label>
+                                            <input type="text" class="form-control" placeholder="Last Name" id="lastname">
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn_example6 btn btn-primary">Create New Copy</button>
+                                </form>
+                            </script>
+                        </code>
+                    </pre>
+                    <h3>Javascript</h3>
+                    <pre>
+                        <code class="language-javascript">
+                            $('.toClone_example6').metalClone({
+                                btnClone 	: '.btn_example6',
+                                enableConfirmMessage: false,
+                                ids: ['input'] // or put [*] for all element with ID(s)
+                            });
+                        </code>
+                    </pre>
+                    <h3>Output</h3>
+                    <div>
+                        <form>
+                            <div class="form-row toClone_example6">
+                                <div class="form-group col-md-6">
+                                    <label for="inputFirstName">First Name</label>
+                                    <input type="text" class="form-control" placeholder="First Name" id="firstname">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputLastName">Last Name</label>
+                                    <input type="text" class="form-control" placeholder="Last Name" id="lastname">
+                                </div>
+                            </div>
+                            <button type="button" class="btn_example6 btn btn-primary">Create New Copy</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- End Example 6 -->
+
+            <!-- Example 7 -->
+            <div class="card p-4 mb-5" style="">
+                <div class=" resume-content mr-auto">
+                    <h4 class="mb-3"><i class="fa fa-fighter-jet mr-3 text-info"></i> Example 7</h4>
+                    <p> Clone element immediately after last element without <mark>[specified clone button(will create new one with name "Create New Element")]</mark>. To specify clone button text, use <mark>btnCloneText</mark> option.</p>
+                </div>
+                <div>
+                    <h3>HTML</h3>
+                    <pre>
+                        <code class="language-markup">
+                            <script type="prism-html-markup">
+                                <form>
+                                    <div class="form-row toClone_example7">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputFirstName">First Name</label>
+                                            <input type="text" class="form-control" placeholder="First Name"/>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputLastName">Last Name</label>
+                                            <input type="text" class="form-control" placeholder="Last Name"/>
+                                        </div>
+                                    </div>
+                                </form>
+                            </script>
+                        </code>
+                    </pre>
+                    <h3>Javascript</h3>
+                    <pre>
+                        <code class="language-javascript">
+                            $('.toClone_example7').metalClone();
+                        </code>
+                    </pre>
+                    <h3>Output</h3>
+                    <div>
+                        <form>
+                            <div class="form-row toClone_example7">
+                                <div class="form-group col-md-6">
+                                    <label for="inputFirstName">First Name</label>
+                                    <input type="text" class="form-control" placeholder="First Name" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputLastName">Last Name</label>
+                                    <input type="text" class="form-control" placeholder="Last Name" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- End Example 7 -->
+
+            <!-- Example 8 -->
+            <div class="card p-4 mb-5" style="">
+                <div class=" resume-content mr-auto">
+                    <h4 class="mb-3"><i class="fa fa-fighter-jet mr-3 text-info"></i> Example 8</h4>
+                    <p> Clone element with <mark>[limit element to clone].</mark> Once limit reached, error message will appear. You can override its style by overriding <mark>.metal-error-limit</mark> class and overriding its message using <mark>cloneLimitText</mark> option.</p>
+                </div>
+                <div>
+                    <h3>HTML</h3>
+                    <pre>
+                        <code class="language-markup">
+                            <script type="prism-html-markup">
+                                <form>
+                                    <div class="form-row toClone_example8">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputFirstName">First Name</label>
+                                            <input type="text" class="form-control" placeholder="First Name"/>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputLastName">Last Name</label>
+                                            <input type="text" class="form-control" placeholder="Last Name"/>
+                                        </div>
+                                    </div>
+                                </form>
+                            </script>
+                        </code>
+                    </pre>
+                    <h3>Javascript</h3>
+                    <pre>
+                        <code class="language-javascript">
+                            $('.toClone_example8').metalClone({
+                                cloneLimit: 3
+                            });
+                        </code>
+                    </pre>
+                    <h3>Output</h3>
+                    <div>
+                        <form>
+                            <div class="form-row toClone_example8">
+                                <div class="form-group col-md-6">
+                                    <label for="inputFirstName">First Name</label>
+                                    <input type="text" class="form-control" placeholder="First Name" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputLastName">Last Name</label>
+                                    <input type="text" class="form-control" placeholder="Last Name" />
+                                </div>
+                            </div>
+                        </form>
+                        <button type="button" class="btn_example8 btn btn-primary">Create New Copy</button>
+                    </div>
+                </div>
+            </div>
+            <!-- End Example 8 -->
+
+            <!-- Example 9 -->
+            <div class="card p-4 mb-5" style="">
+                <div class=" resume-content mr-auto">
+                    <h4 class="mb-3"><i class="fa fa-fighter-jet mr-3 text-info"></i> Example 9</h4>
+                    <p> Even work with <mark>[table rows]</mark>. To override <mark>Remove</mark> button styling, you can override <mark>.metal-btn-remove or .operationsImg or .operations</mark>.</p>
+                </div>
+                <div>
+                    <h3>HTML</h3>
+                    <pre>
+                        <code class="language-markup">
+                            <script type="prism-html-markup">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="toClone_example9">
+                                            <td>First Name</td>
+                                            <td>Last Name</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </script>
+                        </code>
+                    </pre>
+                    <h3>Javascript</h3>
+                    <pre>
+                        <code class="language-javascript">
+                            $('.toClone_example9').metalClone({
+                                cloneLimit: 3
+                            });
+                        </code>
+                    </pre>
+                    <h3>Output</h3>
+                    <div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="toClone_example9">
+                                    <td><input type="text" class="form-control" placeholder="First Name" /></td>
+                                    <td><input type="text" class="form-control" placeholder="Last Name" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button type="button" class="btn_example9 btn btn-primary">Create New Copy</button>
+                    </div>
+                </div>
+            </div>
+            <!-- End Example 9 -->
+
         </div>
-        <div class="toClone_example6_destination">
-			<span> Please place the newly cloned element here</span>
-		</div>
-<div class="container_body">
-<pre>
-<code class="language-markup">
-<script type="prism-html-markup">
-HTML
-<div class="toClone_example6">
-	<input type="text">
-	<select id="m">
-		<option value="">--Please Select</option>
-		<option value="Hello">Hello</option>
-	</select>
-</div>
-<div class="container_body">			
-    <input type="button" class="btn_example6" value="Create New Copy">
-</div>
-<div class="toClone_example6_destination">
-	<span> Please place the newly cloned element here</span>
-</div>
-</script>
-</code>
+    </section>
 
-<code class="language-javascript">
-jQuery
-$('.toClone_example6').metalClone({
-	btnClone 			: '.btn_example6',
-	position			: 'after',
-	numberToClone 		: 5,
-	destination 		: '.toClone_example6_destination'
-});
-</code>
-</pre>		
-</div>
-	</div>
+    <!--====================================================
+                        CONFIGURATIONS
+    ======================================================-->
+    <section class="resume-section p-3 p-lg-5" id="configurations">
+        <div class="row my-auto">
+            <div class="col-12">
+                <h2 class="text-center">Configuration Options</h2>
+                <div class="mb-5 heading-border"></div>
+            </div>
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-configuration">
+                    <thead>
+                        <tr>
+                            <th>Options</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="main-option">destination</div>
+                                <div class="default-option">default: null</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Specify the destination to place the cloned element, if not specified, the cloned element will be placed after the last element or before depend on the <mark>position</mark> option. Destination should be container. E.g: <br/>
+                                    <pre>
+                                        <code class="language-markup">
+                                            <script type="prism-html-markup">
+                                                <div id="myDestination">Text here(if have)</div>
+                                            </script>
+                                        </code>
+                                    </pre>
+                                </div>
+                                Then the destination should be <mark>#myDestination</mark>.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">position</div>
+                                <div class="default-option">default: 'after'</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Specify the position to place the cloned element. Available options <mark>before</mark> and <mark>after</mark>.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">numberToClone</div>
+                                <div class="default-option">default: 1</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Number of clone element you want to clone at the same time. <mark>Please don't put big number as it might slow down cloning process</mark>.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">ids</div>
+                                <div class="default-option">default: []</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Any HTML tag element that have an <mark>id</mark> attribute to make these ID(s) unique. Accept multiples values as array list. E.g :
+                                </div>
+                                <pre>
+                                    <code class="language-javascript">
+                                        ids: ['div','input', 'select']
+                                    </code>
+                                </pre>
 
+                                If you want to serialize all the ID(s) of HTML elements within cloned element, then put <mark>[*]</mark>.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">btnClone</div>
+                                <div class="default-option">default: null</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Put your selector(button class or id name or any css selector(not recommended)). If not specified, the plugin will create a new one for clone button. E.g :
+                                </div>
+                                <pre>
+                                    <code class="language-javascript">
+                                        btnClone: '.clickMe' // #btnClone
+                                    </code>
+                                </pre>
 
+                                <mark>.clickMe</mark> might be a button.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">copyValue</div>
+                                <div class="default-option">default: false</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Should copy including field's value or just leave empty. Available options either <mark>true</mark> and <mark>false</mark>.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">btnRemoveText</div>
+                                <div class="default-option">default: 'Remove'</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Text to appear on remove button.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">btnRemoveClass</div>
+                                <div class="default-option">default: null</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Specify class name for remove button. Very convenient if you want to decorate remove button with your own css styling or you can specify bootstrap's class name. E.g:
+                                </div>
+                                <pre>
+                                    <code class="language-javascript">
+                                        btnRemoveClass: 'btn btn-danger btn-sm'
+                                    </code>
+                                </pre>
+                                To give you more control, this plugin provide <mark>metal-btn-remove</mark> class name to override. E.g:
+                                <pre>
+                                    <code class="language-css">
+                                        .metal-btn-remove {
+                                            // do any styling
+                                        }
+                                    </code>
+                                </pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">btnCloneText</div>
+                                <div class="default-option">default: 'Create New Element'</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Text to appear on clone button. Only available when you didn't specify <mark>btnClone</mark> option.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">btnCloneClass</div>
+                                <div class="default-option">default: null</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Specify class name for clone button. Very convenient if you want to decorate clone button with your own css styling or you can specify bootstrap's class name. E.g:
+                                </div>
+                                <pre>
+                                    <code class="language-javascript">
+                                        btnCloneClass: 'btn btn-primary btn-sm' // or use your own css class name
+                                    </code>
+                                </pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">cloneLimit</div>
+                                <div class="default-option">default: 'infinity'</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Accept integer number. This option limit the number of clone element being cloned. After reach the value provided, user no longer can clone element unless remove the cloned element and message will appeared right after the clone button. To give you more control, this plugin provide <mark>metal-clone-limit</mark> class name to override. E.g:</div>
+                                <pre>
+                                    <code class="language-css">
+                                        .metal-clone-limit {
+                                            // do any styling
+                                        }
+                                    </code>
+                                </pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">cloneLimitText</div>
+                                <div class="default-option">default: 'Clone limit reached'</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Text to appear when clone limit reached.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">cloneLimitClass</div>
+                                <div class="default-option">default: null</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Specify class name for clone limit message's element. Very convenient if you want to decorate clone limit message with your own css styling. E.g:
+                                </div>
+                                <pre>
+                                    <code class="language-javascript">
+                                        cloneLimitClass: '.my-own-limit-styling'
+                                    </code>
+                                </pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">enableIcon</div>
+                                <div class="default-option">default: true</div>
+                            </td>
+                            <td>
+                                <div class="description-text">This plugin by default was using <mark>Font Awesome 5</mark> as Icon on both <mark>Remove</mark> and <mark>Create new element</mark> button. To utilize this feature, head over to <a href="https://fontawesome.com/">Font Awesome</a> page and download the fonts(Any options). If you're using Font Awesome 4 in your project, no worries as you still able to use by setting the <mark>fontAwesomeTheme</mark> option into <mark>basic</mark>. If for some reason, you didn't used font awesome at all, then disable font awesome option by set this option into <mark>false</mark>.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">fontAwesomeTheme</div>
+                                <div class="default-option">default: 'solid'</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Font awesome theme used by this plugin. Available options <mark>regular</mark>,  <mark>solid</mark>, <mark>brand</mark>, <mark>light</mark> and <mark>basic (for Font awesome 4)</mark></div>. If you set this option as a <mark>basic</mark>, then you might need to set both <mark>fontAwesomeRemoveClass</mark> and <mark>fontAwesomeAddClass</mark> options to available class(see font awesome 4 for more details). Only available when <mark>enableIcon</mark> option is set to <mark>true</mark>.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">fontAwesomeRemoveClass</div>
+                                <div class="default-option">default: 'fa-trash-alt'</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Font awesome class's name for remove button. You might need to choose font awesome class's name that available with <mark>fontAwesomeTheme</mark> option. Refer <a href="https://fontawesome.com/icons?d=gallery">Font Awesome</a> for more details. Only available when <mark>enableIcon</mark> option is set to <mark>true</mark>.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">fontAwesomeAddClass</div>
+                                <div class="default-option">default: 'fa-plus'</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Font awesome class's name for clone button. You might need to choose font awesome class's name that available with <mark>fontAwesomeTheme</mark> option. Refer <a href="https://fontawesome.com/icons?d=gallery">Font Awesome</a> for more details. Only available when <mark>enableIcon</mark> and <mark>btnClone</mark> option is set to <mark>true</mark> and not null respectively.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">fontAwesomeAddDataTransform</div>
+                                <div class="default-option">default: ''</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Enabling data transform for clone button. Only available when <mark>enableIcon</mark> option is set to <mark>true</mark>.
+                                E.g : If you set this option to <mark>shrink-8</mark>, behind the scene the plugin will create for you below markup.</div>
+                                <pre>
+                                    <code class="language-markup">
+                                        <script type="prism-html-markup">
+                                            <i class="any fa class" data-fa-transform="shrink-8"></i>
+                                        </script>
+                                    </code>
+                                </pre>
+                                Refer <a href="https://fontawesome.com/how-to-use/svg-with-js">Font Awesome</a> for more details.
+                            </td>
 
-	<div class="container">
-	<span><strong>Example 7 - Clone element [immediate after last element] with specified the number of element to copy and the destination to place the newly cloned element with unique ID(s).</strong></span>
-		<br/>
-		<div class="toClone_example7">
-			<input type="text">
-			<select id="m">
-				<option value="">--Please Select</option>
-				<option value="Hello">Hello</option>
-			</select>
-		</div>
-		<div class="container_body">			
-        	<input type="button" class="btn_example7" value="Create New Copy">
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">fontAwesomeAddDataMask</div>
+                                <div class="default-option">default: ''</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Enabling data masking for clone button. Only available when <mark>enableIcon</mark> option is set to <mark>true</mark>.
+                                    E.g : If you set this option to <mark>fas fa-comment</mark> class's name, behind the scene the plugin will create for you below markup.</div>
+                                <pre>
+                                    <code class="language-markup">
+                                        <script type="prism-html-markup">
+                                            <i class="any fa class" data-fa-mask="fas fa-comment"></i>
+                                        </script>
+                                    </code>
+                                </pre>
+                                Refer <a href="https://fontawesome.com/how-to-use/svg-with-js">Font Awesome</a> for more details.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">fontAwesomeRemoveDataTransform</div>
+                                <div class="default-option">default: ''</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Enabling data transform for remove button. Only available when <mark>enableIcon</mark> option is set to <mark>true</mark>.
+                                    E.g : If you set this option to <mark>shrink-8</mark>, behind the scene the plugin will create for you below markup.</div>
+                                <pre>
+                                    <code class="language-markup">
+                                        <script type="prism-html-markup">
+                                            <i class="any fa class" data-fa-transform="shrink-8"></i>
+                                        </script>
+                                    </code>
+                                </pre>
+                                Refer <a href="https://fontawesome.com/how-to-use/svg-with-js">Font Awesome</a> for more details.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">fontAwesomeRemoveDataMask</div>
+                                <div class="default-option">default: ''</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Enabling data masking for remove button. Only available when <mark>enableIcon</mark> option is set to <mark>true</mark>.
+                                    E.g : If you set this option to <mark>fas fa-comment</mark> class's name, behind the scene the plugin will create for you below markup.</div>
+                                <pre>
+                                    <code class="language-markup">
+                                        <script type="prism-html-markup">
+                                            <i class="any fa class" data-fa-mask="fas fa-comment"></i>
+                                        </script>
+                                    </code>
+                                </pre>
+                                Refer <a href="https://fontawesome.com/how-to-use/svg-with-js">Font Awesome</a> for more details.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">enableConfirmMessage</div>
+                                <div class="default-option">default: true</div>
+                            </td>
+                            <td>
+                                <div class="description-text">By default, plugin will popup confirm message when remove button was clicked. Set this option to <mark>false</mark> to disable. Available options <mark>true</mark> and <mark>false</mark>.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">confirmMessageText</div>
+                                <div class="default-option">default: 'Are you sure?'</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Specify confirm message text. Only available when <mark>enableConfirmMessage</mark> option set to <mark>true</mark>.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">enableAnimation</div>
+                                <div class="default-option">default: true</div>
+                            </td>
+                            <td>
+                                <div class="description-text">By default, plugin will animate(slideDown) clone element being cloned when clone button is clicked. To disable animation, set this option to <mark>false</mark>. Available options <mark>true</mark> and <mark>false</mark>.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">animationSpeed</div>
+                                <div class="default-option">default: 400</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Animation's(slideDown) speed. Accept integer value. Only available when <mark>enableAnimation</mark> option set to <mark>true</mark>.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">enableScrollTop</div>
+                                <div class="default-option">default: true</div>
+                            </td>
+                            <td>
+                                <div class="description-text">Plugin will scroll page to the top of cloned element's position. To disable scroll top, set this option to <mark>false</mark>. Available options <mark>true</mark> and <mark>false</mark>.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">scrollTopSpeed</div>
+                                <div class="default-option">default: 1000</div>
+                            </td>
+                            <td>
+                                <div class="description-text">ScrollTop's speed. Accept integer value. Only available when <mark>enableScrollTop</mark> option set to <mark>true</mark>.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: center; font-size: 1.4em; color: #38A0FE; font-style: italic">
+                                Callback Function
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">onStart</div>
+                                <div class="default-option">default: null</div>
+                            </td>
+                            <td>
+                                <div class="description-text">OnStart callback triggered at very first plugin Initialization. At here you can setup any behaviours. Accept one argument:
+                                    <ul>
+                                        <li>element : element to clone</li>
+                                    </ul>
+                                    E.g:
+                                    <pre>
+                                    <code class="language-javascript">
+                                        $('.htmlElementToClone').metalClone({
+                                            onStart: function(element) {
+                                                console.log(element);
+                                            }
+                                        });
+                                    </code>
+                                </pre>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">onClone</div>
+                                <div class="default-option">default: null</div>
+                            </td>
+                            <td>
+                                <div class="description-text">OnClone callback triggered when clone button was clicked. Accept 2 arguments:
+                                    <ul>
+                                        <li>element : element to clone</li>
+                                        <li>obj : object itself</li>
+                                    </ul>
+                                    This callback triggered before the cloning element occur. During this time you can check for element that want to clone or anything. At here, the only function can be invoked is <mark>.cancelClone(true or false)</mark>. This function will stop current progress of cloning element if called. E.g:
+                                </div>
+                                <pre>
+                                    <code class="language-javascript">
+                                        $('.htmlElementToClone').metalClone({
+                                            onClone: function(element, obj) {
+                                                obj.cancelClone(true);
+                                            }
+                                        });
+                                    </code>
+                                </pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">onComplete</div>
+                                <div class="default-option">default: null</div>
+                            </td>
+                            <td>
+                                <div class="description-text">OnComplete callback were triggered when cloning process of element done/complete/finish. Accept 3 arguments:
+
+                                    <ul>
+                                        <li>element : element to clone</li>
+                                        <li>obj : object itself</li>
+                                        <li>clonedElem : The cloned element.</li>
+                                    </ul>
+                                    At here, the only function can be invoked is <mark>.removeCloned(true or false)</mark>. This function will remove cloned element and only available on this callback. Eg:</div>
+                                <pre>
+                                    <code class="language-javascript">
+                                        $('.htmlElementToClone').metalClone({
+                                            onComplete: function(element, obj) {
+                                                obj.removeCloned(true);
+                                            }
+                                        });
+                                    </code>
+                                </pre>
+                                When <mark>obj.removeCloned(true)</mark> is called, <mark>onClonedRemoved</mark> callback also triggered.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="main-option">onClonedRemoved</div>
+                                <div class="default-option">default: null</div>
+                            </td>
+                            <td>
+                                <div class="description-text">onClonedRemoved callback triggered after remove button was clicked AND element is completely removed from page. Accept 1 argument:
+                                    <ul>
+                                        <li>removedElem : Which is the element that are being removed</li>
+                                    </ul>
+                                    <pre>
+                                    <code class="language-javascript">
+                                        $('.htmlElementToClone').metalClone({
+                                            onClonedRemoved: function(removedElem) {
+                                                console.log(removedElem);
+                                            }
+                                        });
+                                    </code>
+                                </pre>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
         </div>
-        <div class="toClone_example7_destination">
-			<span> Please place the newly cloned element here</span>
-		</div>
-<div class="container_body">
-<pre>
-<code class="language-markup">
-<script type="prism-html-markup">
-HTML
-<div class="toClone_example7">
-	<input type="text">
-	<select id="m">
-		<option value="">--Please Select</option>
-		<option value="Hello">Hello</option>
-	</select>
+    </section>
+
+    <!--====================================================
+                           LICENSE
+    ======================================================-->
+    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="license" style="background-color: #38A0FE; color: white">
+        <div class="row my-auto">
+            <div class="col-12">
+                <h2 class="  text-center">License</h2>
+                <div class="mb-5 heading-border"></div>
+            </div>
+            <div class="resume-item col-md-12 col-sm-12">
+                <h2 style="color: white">MIT License</h2><br/>
+                JQUERY METAL CLONE is licensed under MIT.
+                <br/><br/>
+                Copyright (c) 2018 Norlihazmey Ghazali
+                <br/><br/>
+                Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+                <br/><br/>
+                The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+                <br/><br/>
+                THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+            </div>
+        </div>
+    </section>
 </div>
-<div class="container_body">			
-    <input type="button" class="btn_example7" value="Create New Copy">
+
+<!--====================================================
+                    PORTFOLIO MODALS
+======================================================-->
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="modal-body">
+                        <div class="title-bar">
+                            <div class="col-md-12">
+                                <h2 class="text-center">Our Project</h2>
+                                <div class="heading-border"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img class="img-fluid img-centered" src="img/portfolio/p-1.jpg" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <p>Our new Project every processes had become fragmented; meaning quality and service were inconsistent. This lack of standardization was adversely impacting operating costs, productivity and customer satisfaction. For several years now Payfast has worked strategically with innovations as a means of developing new solutions, products and services. In line with this vision, Success was approached to find new payments solutions to offer Payfast customers on their website, including open invoice and partial payments options.</p>
+                                <ul class="list-inline item-details">
+                                    <li>Client:
+                                        <strong>
+                                            <a href="#">Techs Soft</a>
+                                        </strong>
+                                    </li>
+                                    <li>Date:
+                                        <strong>
+                                            <a href="#">April 2018</a>
+                                        </strong>
+                                    </li>
+                                    <li>Service:
+                                        <strong>
+                                            <a href="#">Web Development</a>
+                                        </strong>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-general btn-white" type="button" data-dismiss="modal">
+                                    <i class="fa fa-times"></i> Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="toClone_example7_destination">
-	<span> Please place the newly cloned element here</span>
+<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="modal-body">
+                        <div class="title-bar">
+                            <div class="col-md-12">
+                                <h2 class="text-center">Our Project</h2>
+                                <div class="heading-border"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img class="img-fluid img-centered" src="img/portfolio/p-2.jpg" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <p>Our new Project every processes had become fragmented; meaning quality and service were inconsistent. This lack of standardization was adversely impacting operating costs, productivity and customer satisfaction. For several years now Payfast has worked strategically with innovations as a means of developing new solutions, products and services. In line with this vision, Success was approached to find new payments solutions to offer Payfast customers on their website, including open invoice and partial payments options.</p>
+                                <ul class="list-inline item-details">
+                                    <li>Client:
+                                        <strong>
+                                            <a href="#">Techs Soft</a>
+                                        </strong>
+                                    </li>
+                                    <li>Date:
+                                        <strong>
+                                            <a href="#">April 2018</a>
+                                        </strong>
+                                    </li>
+                                    <li>Service:
+                                        <strong>
+                                            <a href="#">Web Development</a>
+                                        </strong>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-general btn-white" type="button" data-dismiss="modal">
+                                    <i class="fa fa-times"></i> Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="modal-body">
+                        <div class="title-bar">
+                            <div class="col-md-12">
+                                <h2 class="text-center">Our Project</h2>
+                                <div class="heading-border"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img class="img-fluid img-centered" src="img/portfolio/p-3.jpg" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <p>Our new Project every processes had become fragmented; meaning quality and service were inconsistent. This lack of standardization was adversely impacting operating costs, productivity and customer satisfaction. For several years now Payfast has worked strategically with innovations as a means of developing new solutions, products and services. In line with this vision, Success was approached to find new payments solutions to offer Payfast customers on their website, including open invoice and partial payments options.</p>
+                                <ul class="list-inline item-details">
+                                    <li>Client:
+                                        <strong>
+                                            <a href="#">Techs Soft</a>
+                                        </strong>
+                                    </li>
+                                    <li>Date:
+                                        <strong>
+                                            <a href="#">April 2018</a>
+                                        </strong>
+                                    </li>
+                                    <li>Service:
+                                        <strong>
+                                            <a href="#">Web Development</a>
+                                        </strong>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-general btn-white" type="button" data-dismiss="modal">
+                                    <i class="fa fa-times"></i> Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="modal-body">
+                        <div class="title-bar">
+                            <div class="col-md-12">
+                                <h2 class="text-center">Our Project</h2>
+                                <div class="heading-border"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img class="img-fluid img-centered" src="img/portfolio/p-4.jpg" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <p>Our new Project every processes had become fragmented; meaning quality and service were inconsistent. This lack of standardization was adversely impacting operating costs, productivity and customer satisfaction. For several years now Payfast has worked strategically with innovations as a means of developing new solutions, products and services. In line with this vision, Success was approached to find new payments solutions to offer Payfast customers on their website, including open invoice and partial payments options.</p>
+                                <ul class="list-inline item-details">
+                                    <li>Client:
+                                        <strong>
+                                            <a href="#">Techs Soft</a>
+                                        </strong>
+                                    </li>
+                                    <li>Date:
+                                        <strong>
+                                            <a href="#">April 2018</a>
+                                        </strong>
+                                    </li>
+                                    <li>Service:
+                                        <strong>
+                                            <a href="#">Web Development</a>
+                                        </strong>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-general btn-white" type="button" data-dismiss="modal">
+                                    <i class="fa fa-times"></i> Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="modal-body">
+                        <div class="title-bar">
+                            <div class="col-md-12">
+                                <h2 class="text-center">Our Project</h2>
+                                <div class="heading-border"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img class="img-fluid img-centered" src="img/portfolio/p-5.jpg" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <p>Our new Project every processes had become fragmented; meaning quality and service were inconsistent. This lack of standardization was adversely impacting operating costs, productivity and customer satisfaction. For several years now Payfast has worked strategically with innovations as a means of developing new solutions, products and services. In line with this vision, Success was approached to find new payments solutions to offer Payfast customers on their website, including open invoice and partial payments options.</p>
+                                <ul class="list-inline item-details">
+                                    <li>Client:
+                                        <strong>
+                                            <a href="#">Techs Soft</a>
+                                        </strong>
+                                    </li>
+                                    <li>Date:
+                                        <strong>
+                                            <a href="#">April 2018</a>
+                                        </strong>
+                                    </li>
+                                    <li>Service:
+                                        <strong>
+                                            <a href="#">Web Development</a>
+                                        </strong>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-general btn-white" type="button" data-dismiss="modal">
+                                    <i class="fa fa-times"></i> Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="modal-body">
+                        <div class="title-bar">
+                            <div class="col-md-12">
+                                <h2 class="text-center">Our Project</h2>
+                                <div class="heading-border"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img class="img-fluid img-centered" src="img/portfolio/p-6.jpg" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <p>Our new Project every processes had become fragmented; meaning quality and service were inconsistent. This lack of standardization was adversely impacting operating costs, productivity and customer satisfaction. For several years now Payfast has worked strategically with innovations as a means of developing new solutions, products and services. In line with this vision, Success was approached to find new payments solutions to offer Payfast customers on their website, including open invoice and partial payments options.</p>
+                                <ul class="list-inline item-details">
+                                    <li>Client:
+                                        <strong>
+                                            <a href="#">Techs Soft</a>
+                                        </strong>
+                                    </li>
+                                    <li>Date:
+                                        <strong>
+                                            <a href="#">April 2018</a>
+                                        </strong>
+                                    </li>
+                                    <li>Service:
+                                        <strong>
+                                            <a href="#">Web Development</a>
+                                        </strong>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-general btn-white" type="button" data-dismiss="modal">
+                                    <i class="fa fa-times"></i> Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="modal-body">
+                        <div class="title-bar">
+                            <div class="col-md-12">
+                                <h2 class="text-center">Our Project</h2>
+                                <div class="heading-border"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img class="img-fluid img-centered" src="img/portfolio/p-7.jpg" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <p>Our new Project every processes had become fragmented; meaning quality and service were inconsistent. This lack of standardization was adversely impacting operating costs, productivity and customer satisfaction. For several years now Payfast has worked strategically with innovations as a means of developing new solutions, products and services. In line with this vision, Success was approached to find new payments solutions to offer Payfast customers on their website, including open invoice and partial payments options.</p>
+                                <ul class="list-inline item-details">
+                                    <li>Client:
+                                        <strong>
+                                            <a href="#">Techs Soft</a>
+                                        </strong>
+                                    </li>
+                                    <li>Date:
+                                        <strong>
+                                            <a href="#">April 2018</a>
+                                        </strong>
+                                    </li>
+                                    <li>Service:
+                                        <strong>
+                                            <a href="#">Web Development</a>
+                                        </strong>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-general btn-white" type="button" data-dismiss="modal">
+                                    <i class="fa fa-times"></i> Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal8" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="modal-body">
+                        <div class="title-bar">
+                            <div class="col-md-12">
+                                <h2 class="text-center">Our Project</h2>
+                                <div class="heading-border"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img class="img-fluid img-centered" src="img/portfolio/p-8.jpg" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <p>Our new Project every processes had become fragmented; meaning quality and service were inconsistent. This lack of standardization was adversely impacting operating costs, productivity and customer satisfaction. For several years now Payfast has worked strategically with innovations as a means of developing new solutions, products and services. In line with this vision, Success was approached to find new payments solutions to offer Payfast customers on their website, including open invoice and partial payments options.</p>
+                                <ul class="list-inline item-details">
+                                    <li>Client:
+                                        <strong>
+                                            <a href="#">Techs Soft</a>
+                                        </strong>
+                                    </li>
+                                    <li>Date:
+                                        <strong>
+                                            <a href="#">April 2018</a>
+                                        </strong>
+                                    </li>
+                                    <li>Service:
+                                        <strong>
+                                            <a href="#">Web Development</a>
+                                        </strong>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-general btn-white" type="button" data-dismiss="modal">
+                                    <i class="fa fa-times"></i> Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal9" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="modal-body">
+                        <div class="title-bar">
+                            <div class="col-md-12">
+                                <h2 class="text-center">Our Project</h2>
+                                <div class="heading-border"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img class="img-fluid img-centered" src="img/portfolio/p-9.jpg" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <p>Our new Project every processes had become fragmented; meaning quality and service were inconsistent. This lack of standardization was adversely impacting operating costs, productivity and customer satisfaction. For several years now Payfast has worked strategically with innovations as a means of developing new solutions, products and services. In line with this vision, Success was approached to find new payments solutions to offer Payfast customers on their website, including open invoice and partial payments options.</p>
+                                <ul class="list-inline item-details">
+                                    <li>Client:
+                                        <strong>
+                                            <a href="#">Techs Soft</a>
+                                        </strong>
+                                    </li>
+                                    <li>Date:
+                                        <strong>
+                                            <a href="#">April 2018</a>
+                                        </strong>
+                                    </li>
+                                    <li>Service:
+                                        <strong>
+                                            <a href="#">Web Development</a>
+                                        </strong>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-general btn-white" type="button" data-dismiss="modal">
+                                    <i class="fa fa-times"></i> Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Global javascript -->
+<script src="js/jquery/jquery.min.js"></script>
+<script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-easing/jquery.easing.min.js"></script>
+<script src="js/counter/jquery.waypoints.min.js"></script>
+<script src="js/counter/jquery.counterup.min.js"></script>
+<script src="node_modules/jquery-metal-clone/jquery.metalClone.min.js"></script>
+<script src="js/custom.js"></script>
+<script>
+    $(document).ready(function(){
+
+        $(".filter-b").click(function(){
+            var value = $(this).attr('data-filter');
+            if(value == "all")
+            {
+                $('.filter').show('1000');
+            }
+            else
+            {
+                $(".filter").not('.'+value).hide('3000');
+                $('.filter').filter('.'+value).show('3000');
+            }
+        });
+
+        if ($(".filter-b").removeClass("active")) {
+            $(this).removeClass("active");
+        }
+        $(this).addClass("active");
+    });
+
+    // SKILLS
+    $(function () {
+        $('.counter').counterUp({
+            delay: 10,
+            time: 2000
+        });
+
+        $('.toClone_example1').metalClone({
+            btnClone 	: '.btn_example1',
+            fontAwesomeTheme: 'basic'
+        });
+
+        $('.toClone_example2').metalClone({
+            btnClone 	: '.btn_example2',
+            copyValue 	: true,
+            fontAwesomeTheme: 'basic',
+            enableAnimation: false
+        });
+
+        $('.toClone_example3').metalClone({
+            btnClone 	: '.btn_example3',
+            position 	: 'before',
+            fontAwesomeTheme: 'basic',
+            btnRemoveClass: 'btn btn-danger btn-sm'
+        });
+
+        $('.toClone_example4').metalClone({
+            btnClone 	: '.btn_example4',
+            numberToClone 	: 3,
+            fontAwesomeTheme: 'basic',
+            btnRemoveClass: 'btn btn-danger btn-sm',
+            enableConfirmMessage: false
+        });
+
+        $('.toClone_example5').metalClone({
+            btnClone 	: '.btn_example5',
+            fontAwesomeTheme: 'basic',
+            btnRemoveClass: 'btn btn-danger btn-sm',
+            confirmMessageText: 'This is the custom message. Are you sure to remove this element?',
+            destination: '#toClone_example5_output',
+        });
+
+        $('.toClone_example6').metalClone({
+            btnClone 	: '.btn_example6',
+            fontAwesomeTheme: 'basic',
+            btnRemoveClass: 'btn btn-danger btn-sm',
+            enableConfirmMessage: false,
+            ids: ['input']
+        });
+
+        $('.toClone_example7').metalClone({
+            fontAwesomeTheme: 'basic',
+        });
+
+        $('.toClone_example8').metalClone({
+            fontAwesomeTheme: 'basic',
+            btnClone: '.btn_example8',
+            cloneLimit: 3
+        });
+
+        $('.toClone_example9').metalClone({
+            fontAwesomeTheme: 'basic',
+            btnClone: '.btn_example9'
+        });
+    });
 </script>
-</code>
+</body>
 
-<code class="language-javascript">
-jQuery
-$('.toClone_example7').metalClone({
-	btnClone 			: '.btn_example7',
-	position			: 'after',
-	numberToClone 		: 5,
-	destination 		: '.toClone_example7_destination',
-	ids					: ['select']
-});
-</code>
-</pre>		
-</div>
-	</div>
-
-
-
-
-	<div class="container">
-	<span><strong>Example 8 - Clone element [immediate after last element] without specified clone button(will create new one with name "Create New Element").</strong></span>
-		<br/>
-		<div class="toClone_example8">
-			<input type="text">
-			<select id="m">
-				<option value="">--Please Select</option>
-				<option value="Hello">Hello</option>
-			</select>
-		</div>
-<div class="container_body">
-<pre>
-<code class="language-markup">
-<script type="prism-html-markup">
-HTML
-<div class="toClone_example8">
-	<input type="text">
-	<select id="m">
-		<option value="">--Please Select</option>
-		<option value="Hello">Hello</option>
-	</select>
-</div>
-</script>
-</code>
-
-<code class="language-javascript">
-jQuery
-$('.toClone_example8').metalClone({
-	position	: 'after'
-});
-</code>
-</pre>		
-</div>	
-	</div>
-
-
-	<div class="container">
-	<span><strong>Example 9 - Clone element [immediate after last element] with specified clone and remove button name.</strong></span>
-		<br/>
-		<div class="toClone_example9">
-			<input type="text">
-			<select id="m">
-				<option value="">--Please Select</option>
-				<option value="Hello">Hello</option>
-			</select>
-		</div>
-<div class="container_body">
-<pre>
-<code class="language-markup">
-<script type="prism-html-markup">
-HTML
-<div class="toClone_example9">
-	<input type="text">
-	<select id="m">
-		<option value="">--Please Select</option>
-		<option value="Hello">Hello</option>
-	</select>
-</div>
-</script>
-</code>
-
-<code class="language-javascript">
-jQuery
-$('.toClone_example9').metalClone({
-	position			: 'after',
-	btnRemoveText		: 'Please delete me from this',
-	btnCloneText		: 'Wow, make another copy'
-});
-</code>
-</pre>		
-</div>	
-	</div>
-
-
-
-	<div class="container">
-	<span><strong>Example 10 - Clone element with limit element to clone.</strong></span>
-		<br/>
-		<div class="toClone_example10">
-			<input type="text">
-			<select id="m">
-				<option value="">--Please Select</option>
-				<option value="Hello">Hello</option>
-			</select>
-		</div>
-<div class="container_body">
-<pre>
-<code class="language-markup">
-<script type="prism-html-markup">
-HTML
-<div class="toClone_example10">
-	<input type="text">
-	<select id="m">
-		<option value="">--Please Select</option>
-		<option value="Hello">Hello</option>
-	</select>
-</div>
-</script>
-</code>
-
-<code class="language-javascript">
-jQuery
-$('.toClone_example10').metalClone({
-	cloneLimit : 3
-});
-</code>
-</pre>		
-</div>	
-	</div>
-
-
-
-		<div class="container">
-	<span><strong>Example 11 - Clone element with limit element to clone and number of element to clone[must be noted that, the limit specified must be higher than number of element to clone.</strong></span>
-		<br/>
-		<div class="toClone_example11">
-			<input type="text">
-			<select id="m">
-				<option value="">--Please Select</option>
-				<option value="Hello">Hello</option>
-			</select>
-		</div>
-<div class="container_body">
-<pre>
-<code class="language-markup">
-<script type="prism-html-markup">
-HTML
-<div class="toClone_example11">
-	<input type="text">
-	<select id="m">
-		<option value="">--Please Select</option>
-		<option value="Hello">Hello</option>
-	</select>
-</div>
-</script>
-</code>
-
-<code class="language-javascript">
-jQuery
-$('.toClone_example11').metalClone({
-	cloneLimit : 3,
-	numberToClone : 2
-});
-</code>
-</pre>		
-</div>	
-	</div>
-
-
-
-
-			<div class="container">
-	<span><strong>Example 12 - Event work with table TR clone.</strong></span>
-		<br/>
-		<div id="toClone_example12">
-			<table border="1">
-				<tr>
-					<td>No.</td>
-					<td>Name</td>
-					<td>Ic</td>
-					<td>Gender</td>
-				</tr>
-				<tr>
-					<td>a</td>
-					<td>b</td>
-					<td>c</td>
-					<td>d</td>
-				</tr>
-				<tr class="toClone_example12">
-					<td><input type="text" size="5" id="kk"/></td>
-					<td><input type="text" size="5"/></td>
-					<td><input type="text" size="5"/></td>
-					<td><input type="text" size="5"/></td>
-				</tr>
-			</table>
-		</div>
-<div class="container_body">
-<pre>
-<code class="language-markup">
-<script type="prism-html-markup">
-HTML
-<table border="1">
-	<tr>
-		<td>No.</td>
-		<td>Name</td>
-		<td>Ic</td>
-		<td>Gender</td>
-	</tr>
-	<tr>
-		<td>a</td>
-		<td>b</td>
-		<td>c</td>
-		<td>d</td>
-	</tr>
-	<tr class="toClone_example12">
-		<td><input type="text" size="5" id="kk"/></td>
-		<td><input type="text" size="5"/></td>
-		<td><input type="text" size="5"/></td>
-		<td><input type="text" size="5"/></td>
-	</tr>
-</table>
-</script>
-</code>
-
-<code class="language-javascript">
-jQuery
-$('.toClone_example12').metalClone({
-	cloneLimit : 3
-});
-</code>
-</pre>		
-</div>	
-	</div>
-
-
-	<script>
-	$(function(){
-
-		// Example 1
-		$('.toClone_example1').metalClone({
-			btnClone 	: '.btn_example1',
-			copyValue 	: false
-		});
-
-		// Example 2
-		$('.toClone_example2').metalClone({
-			btnClone 	: '.btn_example2',
-			copyValue 	: true
-		});
-
-		// Example 3
-		$('.toClone_example3').metalClone({
-			btnClone 	: '.btn_example3',
-			position	: 'before',
-			copyValue 	: false
-		});
-
-		// Example 4
-		$('.toClone_example4').metalClone({
-			btnClone 	: '.btn_example4',
-			position	: 'before',
-			copyValue 	: true
-		});
-
-		// Example 5
-		$('.toClone_example5').metalClone({
-			btnClone 		: '.btn_example5',
-			position		: 'after',
-			numberToClone 	: 5
-		});
-
-		// Example 6
-		$('.toClone_example6').metalClone({
-			btnClone 			: '.btn_example6',
-			position			: 'after',
-			numberToClone 		: 5,
-			destination 		: '.toClone_example6_destination'
-		});
-
-		// Example 7
-		$('.toClone_example7').metalClone({
-			btnClone 			: '.btn_example7',
-			position			: 'after',
-			numberToClone 		: 5,
-			destination 		: '.toClone_example7_destination',
-			ids					: ['select']
-		});
-
-		// Example 8
-		$('.toClone_example8').metalClone({
-			position			: 'after'
-		});
-
-		// Example 9
-		$('.toClone_example9').metalClone({
-			position			: 'after',
-			btnRemoveText		: 'Please delete me from this',
-			btnCloneText		: 'Wow, make another copy'
-		});
-
-		// Example 10
-		$('.toClone_example10').metalClone({
-			cloneLimit : 3
-		});
-
-		// Example 11
-		$('.toClone_example11').metalClone({
-			cloneLimit : 3,
-			numberToClone : 2 
-
-		});
-
-		// Example 12
-		$('.toClone_example12').metalClone({
-			cloneLimit : 3,
-			cloneLimitText : "Limit Only 3"
-
-		});
-
-		
-
-	});
-	</script>
-	</body>
-	</html>
+</html>
