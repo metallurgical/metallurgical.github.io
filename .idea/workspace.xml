@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3cc9f92c-86d6-476e-ba62-1a0f37b24b1d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/jquery-metal-clone/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jquery-metal-clone/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jquery-metal-clone/bower.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jquery-metal-clone/codeHighlighter/prism.css" beforeDir="false" afterPath="$PROJECT_DIR$/jquery-metal-clone/codeHighlighter/prism.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jquery-metal-clone/codeHighlighter/prism.js" beforeDir="false" afterPath="$PROJECT_DIR$/jquery-metal-clone/codeHighlighter/prism.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jquery-metal-clone/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/jquery-metal-clone/gulpfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jquery-metal-clone/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/jquery-metal-clone/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jquery-metal-clone/jquery.metalClone.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jquery-metal-clone/jquery.metalClone.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jquery-metal-clone/metalClone.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jquery-metal-clone/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jquery-metal-clone/test.html" beforeDir="false" />
-    </list>
+    <list default="true" id="3cc9f92c-86d6-476e-ba62-1a0f37b24b1d" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,8 +14,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/jquery-metal-clone/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="52" column="40" lean-forward="true" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
+            <state relative-caret-position="-320">
+              <caret line="77" column="64" lean-forward="true" selection-start-line="77" selection-start-column="64" selection-end-line="77" selection-end-column="64" />
               <folding>
                 <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#p#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -175,16 +162,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1526221934469</updated>
-      <workItem from="1526221935839" duration="27497000" />
+      <workItem from="1526221935839" duration="27831000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27497000" />
+    <option name="totallyTimeSpent" value="27831000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17777778" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -195,7 +181,7 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" weight="0.28365386" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.28365386" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -311,8 +297,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/jquery-metal-clone/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="52" column="40" lean-forward="true" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
+        <state relative-caret-position="-320">
+          <caret line="77" column="64" lean-forward="true" selection-start-line="77" selection-start-column="64" selection-end-line="77" selection-end-column="64" />
           <folding>
             <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
             <element signature="n#style#0;n#p#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
